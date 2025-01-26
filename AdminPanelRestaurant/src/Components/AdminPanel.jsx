@@ -14,7 +14,7 @@ const AdminPanel = () => {
 	useEffect(() => {
 		const fetchOrders = async () => {
 			try {
-				const response = await axios.get("http://localhost:8000/home-delivery-orders");
+				const response = await axios.get("https://restaurantwebsite-yd5g.onrender.com/home-delivery-orders");
 				setOrders(response.data.data);
 			} catch (err) {
 				setError("Failed to fetch orders");
@@ -39,7 +39,7 @@ const AdminPanel = () => {
 	
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/home-delivery-orders/${id}`);
+      await axios.delete(`https://restaurantwebsite-yd5g.onrender.com/home-delivery-orders/${id}`);
       setOrders((prevOrders) => prevOrders.filter((order) => order._id !== id));
       toast.success("Order deleted successfully", {
         position: "top-right",
@@ -59,7 +59,7 @@ const AdminPanel = () => {
 
 const handleStatusChange = async (id) => {
    try {
-     await axios.put(`http://localhost:8000/home-delivery-orders/status/${id}`, { status: "Completed" });
+     await axios.put(`https://restaurantwebsite-yd5g.onrender.com/home-delivery-orders/status/${id}`, { status: "Completed" });
      setOrders((prevOrders) =>
        prevOrders.map((order) =>
          order._id === id ? { ...order, status: "Completed" } : order
