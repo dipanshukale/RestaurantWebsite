@@ -21,7 +21,7 @@ const OrderConfirmation = () => {
     }
 
     try {
-      const response = await axios.post("http://localhost:8000/send-otp", {
+      const response = await axios.post("https://restaurantwebsite-yd5g.onrender.com/send-otp", {
         mobile: mobileNumber,
 	  },{
 		  withCredentials: true,
@@ -40,7 +40,7 @@ const OrderConfirmation = () => {
 
   const verifyOtp = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/verify-otp", {
+      const response = await axios.post("https://restaurantwebsite-yd5g.onrender.com/verify-otp", {
         mobile: mobileNumber,
         otp,
 	  }, {
@@ -69,7 +69,7 @@ const OrderConfirmation = () => {
     return;
   }
     try {
-      const response = await axios.post("http://localhost:8000/confirm-order", {
+      const response = await axios.post("https://restaurantwebsite-yd5g.onrender.com/confirm-order", {
         customerName,
         mobileNumber,
         orderSummary,
@@ -150,21 +150,6 @@ const OrderConfirmation = () => {
             </div>
           )}
         </form>
-
-{/*          */}
-          {/* <button */}
-            {/* // onClick={sendOtp} */}
-            {/* // className="w-full bg-green-500 text-white py-2 px-4 rounded-lg mt-4 hover:bg-green-600 transition" */}
-          {/* // > */}
-            {/* Send OTP */}
-          {/* </button> */}
-        
-          {/* <button */}
-            {/* // onClick={verifyOtp} */}
-            {/* // className="w-full bg-black text-white py-2 px-4 rounded-lg mt-4 hover:bg-gray-800 transition" */}
-          {/* // > */}
-            {/* Verify OTP */}
-            {/* </button> */}
         
 
         <button onClick={orderconfirm} className="w-full bg-black text-white py-2 px-4 rounded-lg mt-4 ">Confirm Order</button>
