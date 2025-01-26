@@ -9,7 +9,7 @@ const HeroSection = () => {
     <section
       className="relative bg-cover bg-center bg-no-repeat flex items-center h-[800px] lg:h-[750px]"
       style={{
-        backgroundImage: `url(../../public/hero1.jpg)`,
+        backgroundImage: `url(../../public/veganhero1.jpeg)`,
       }}
     >
      
