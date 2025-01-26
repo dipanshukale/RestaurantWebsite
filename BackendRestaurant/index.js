@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 // Configure CORS
 app.use(
 	cors({
-		origin: ["http://localhost:5173", "http://localhost:5174"],
+		origin: ["https://restaurantwebsite-frontend.onrender.com", "http://localhost:5174"],
 		methods: ["POST", "GET", "DELETE", "PUT"],
 		credentials: true,
 	})
