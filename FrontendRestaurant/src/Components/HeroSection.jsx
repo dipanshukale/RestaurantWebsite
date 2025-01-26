@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-scroll"
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import HeroImg from "../../public/hero1.jpg";
+
 
 const HeroSection = () => {
   const navigate = useNavigate();
@@ -9,7 +11,7 @@ const HeroSection = () => {
     <section
       className="relative bg-cover bg-center bg-no-repeat flex items-center h-[800px] lg:h-[750px]"
       style={{
-        backgroundImage: `url(../../public/veganhero1.jpeg)`,
+        backgroundImage: `url(${HeroImg})`,
       }}
     >
      
