@@ -13,7 +13,7 @@ const OrderSummaryPage = () => {
 	const handlePlaceOrder = async () => {
 		try {
 			const response = await axios.post(
-				"http://localhost:8000/home-delivery",
+				"https://restaurantwebsite-yd5g.onrender.com/home-delivery",
 				{
 					customerDetails,
 					cart,
