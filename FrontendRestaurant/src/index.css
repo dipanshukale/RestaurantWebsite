@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+
+@media(max-width:768px){
+  .paddingNavbar{
+    padding: 25px;
+  }
+}
+
+@layer utilities {
+  @keyframes scroll {
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 10s linear infinite;
+  }
+}
+
