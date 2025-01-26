@@ -24,7 +24,7 @@ const RestaurantChartsPage = () => {
   useEffect(() => {
     const fetchOrders = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/home-delivery-orders");
+        const response = await axios.get("https://restaurantwebsite-yd5g.onrender.com/home-delivery-orders");
         setOrders(response.data.data);
       } catch (err) {
         setError("Failed to fetch orders.");
