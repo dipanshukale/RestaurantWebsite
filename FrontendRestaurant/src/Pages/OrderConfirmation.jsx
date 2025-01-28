@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import { ClipLoader } from "react-spinners";
 import axios from "axios";
 
 const OrderConfirmation = () => {
@@ -9,6 +10,7 @@ const OrderConfirmation = () => {
   const [otp, setOtp] = useState("");
   const [isOtpSent, setIsOtpSent] = useState(false);
   const [confirmOrder, setConfirmOrder] = useState(false);
+  const [loading, setLoading] = useState("");
 
   const navigate = useNavigate();
   const { state } = useLocation();
@@ -64,6 +66,7 @@ const OrderConfirmation = () => {
   };
 
   const orderconfirm = async () => {
+    setLoading(true);
     if (!customerName || !mobileNumber || orderSummary.length === 0) {
     toast.error("Please fill in all fields before confirming the order.");
     return;
@@ -89,6 +92,8 @@ const OrderConfirmation = () => {
         setCustomerName("");
         setMobileNumber("");
         setOtp("");
+
+	setLoading(false);
         
         setTimeout(() => {
           navigate("/");
@@ -152,7 +157,7 @@ const OrderConfirmation = () => {
         </form>
         
 
-        <button onClick={orderconfirm} className="w-full bg-black text-white py-2 px-4 rounded-lg mt-4 ">Confirm Order</button>
+        <button onClick={orderconfirm} className="w-full bg-black text-white py-2 px-4 rounded-lg mt-4 "> {loading && <ClipLoader className="mr-2" size={20} color="white"/>} Confirm Order</button>
       </div>
     </div>
   );
