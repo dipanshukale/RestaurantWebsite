@@ -1,16 +1,19 @@
 import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import { ClipLoader } from "react-spinners";
 import axios from "axios";
 
 const OrderSummaryPage = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
 	const { customerDetails, cart} = location.state || {}
+	const [loading, setLoading] = useState("");
 	
 
 
 	const handlePlaceOrder = async () => {
+		setLoading(true);
 		try {
 			const response = await axios.post(
 				"https://restaurantwebsite-yd5g.onrender.com/home-delivery",
@@ -31,6 +34,7 @@ const OrderSummaryPage = () => {
 					theme: "dark",
 				});
 
+				setLoading(false);
 				setTimeout(() => {
 					navigate("/");
 				}, 3000);
@@ -89,6 +93,7 @@ const OrderSummaryPage = () => {
 					onClick={handlePlaceOrder}
 					className="w-full bg-black text-white py-2 rounded-lg mt-6 hover:bg-green-600 transition"
 				>
+					{loading && <ClipLoader className="mr-2" size={20} color="white"/>}
 					Place Order
 				</button>
 			</div>
